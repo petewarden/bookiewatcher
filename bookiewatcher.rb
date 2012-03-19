@@ -72,7 +72,6 @@ def update_bookie_spreadsheet()
           end
         else
           header_map[header_name] = header_column
-          $stderr.puts "header_name='#{header_name}'"
         end
         header_column += 1
       end
@@ -107,8 +106,7 @@ def update_bookie_spreadsheet()
           first_empty_header += 1
         end
         title_column = header_map[title]
-        value = (percent.to_f / 100)
-        ws[insertion_row, title_column] = value
+        ws[insertion_row, title_column] = percent+'%'
       end
         
       ws.save()
